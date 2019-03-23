@@ -1,5 +1,5 @@
 terraform {
-region="eu-west-1"
+  region = "eu-west-1"
 }
 
 provider "aws" {
@@ -7,6 +7,12 @@ provider "aws" {
 }
 
 module "test" {
-  source = "../../modules/1"
-}
+  source       = "../../modules/1"
+  organisation = "x"
+  environment  = "test"
+  entity       = "sales"
 
+  tags {
+    owner = "mikec"
+  }
+}
